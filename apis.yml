@@ -1,23 +1,142 @@
 aid: axiado-corporation
 name: Axiado Corporation
-description: 'Axiado Corporation is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: 'Axiado Corporation is a San Jose, California semiconductor company building
+  hardware-anchored, AI-driven platform security for AI data centers, cloud infrastructure,
+  5G networks and disaggregated compute. Its flagship Trusted Control/Compute Unit
+  (TCU) — the AX3000 family and the second-generation AX3080 — collapses the baseboard
+  management controller (BMC), hardware root of trust, trusted platform module (TPM),
+  hardware security module, firewall and LAN-on-motherboard into a single system-on-chip
+  with on-die AI/ML engines for dynamic threat management. Axiado ships OCP DC-SCM
+  secure control modules (Smart-SCM3002, SCM3003, SCM3080-MT) alongside the SecureStack
+  ADK, a Zephyr RTOS software development kit whose public API reference documents
+  crypto, key management, X.509 certificate, BMC control, flash, SPI, DMA and OS-abstraction
+  engines, plus OpenBMC-based out-of-band management running on the TCU. Developer
+  documentation is published at devhub.axiado.com. The API surface is an embedded C/C++
+  SDK and on-device management interface — Axiado publishes no hosted public web API
+  and no OpenAPI definition.'
+image: https://axiado.com/wp-content/uploads/2024/07/AXIADO_HORIZONTAL_PRIMARY.png
 url: https://raw.githubusercontent.com/api-evangelist/axiado-corporation/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pipeline
+x-api-surface: embedded
+x-api-surface-note: SecureStack ADK is an embedded C/C++ API cross-compiled into TCU
+  firmware (Zephyr RTOS) and distributed as source by Axiado customer engineering;
+  management is exposed on-device via OpenBMC. There is no network-addressable public
+  baseURL to record.
+x-enrichment:
+  date: '2026-07-31'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v1
 specificationVersion: '0.20'
 created: '2026-07-31'
 modified: '2026-07-31'
 tags:
-- Company
-apis: []
+- Semiconductors
+- Hardware Security
+- Platform Security
+- Data Center
+- Cybersecurity
+- Baseboard Management Controller
+- Root of Trust
+- Firmware
+- Embedded
+- Cryptography
+- AI Infrastructure
+- Trusted Computing
+- OpenBMC
+- SDK
+apis:
+- name: Axiado SecureStack ADK
+  description: 'The SecureStack Application Development Kit is Axiado''s public API
+    for building secure applications on the AX3000 / AX2000 TCU family. It exposes
+    thread-safe engine interfaces for crypto (AES, SHA/SHA-3, RSA, ECC, TRNG), X.509
+    certificate management, root key management and key store, BMC boot control and
+    status, NOR flash, SPI, DMA, register access, reset management, secure-coding primitives
+    (safe math, hardened booleans) and an OS abstraction layer (memory, timers, mutexes,
+    semaphores, critical sections). Applications run in the TCU Secure Enclave under
+    a hardened Zephyr RTOS 3.0.0, in privileged or sandboxed non-privileged mode.'
+  humanURL: https://devhub.axiado.com/reference
+  tags:
+  - SDK
+  - Cryptography
+  - Firmware
+  - Embedded
+  - Baseboard Management Controller
+  properties:
+  - type: Documentation
+    url: https://devhub.axiado.com/docs
+  - type: APIReference
+    url: https://devhub.axiado.com/reference
+  - type: GettingStarted
+    url: https://devhub.axiado.com/docs/getting-started-with-securestack-adk
+  - type: ErrorCatalog
+    url: errors/axiado-corporation-error-codes.yml
+  - type: Conventions
+    url: conventions/axiado-corporation-conventions.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/axiado-corporation-domain-security.yml
 - type: Website
+  url: https://axiado.com/
+- type: DeveloperPortal
+  url: https://devhub.axiado.com/
+- type: Documentation
+  url: https://devhub.axiado.com/docs
+- type: APIReference
+  url: https://devhub.axiado.com/reference
+- type: GettingStarted
+  url: https://devhub.axiado.com/docs/getting-started
+- type: Support
+  url: https://devhub.axiado.com/discuss
+- type: HelpCenter
+  url: https://axiado-external.atlassian.net/
+- type: Login
+  url: https://devhub.axiado.com/login
+- type: Blog
+  url: https://axiado.com/news/
+- type: BlogRSS
+  url: https://axiado.com/feed/
+- type: GitHubOrganization
+  url: https://github.com/axiado
+- type: TermsOfService
+  url: https://axiado.com/terms-of-service/
+- type: PrivacyPolicy
+  url: https://axiado.com/privacy/
+- type: ContactUs
+  url: https://axiado.com/contact/
+- type: Products
+  url: https://axiado.com/products/
+- type: Technology
+  url: https://axiado.com/tcu-platform/
+- type: Careers
+  url: https://axiado.com/joinus/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/axiado-corporation
+- type: Crunchbase
+  url: https://www.crunchbase.com/organization/axiado
+- type: SecondaryMarket
   url: https://forgeglobal.com/axiado-corporation_stock/
+- type: LLMsTxt
+  url: llms/axiado-corporation-llms.txt
+- type: ErrorCatalog
+  url: errors/axiado-corporation-error-codes.yml
+- type: Conventions
+  url: conventions/axiado-corporation-conventions.yml
+- type: Lifecycle
+  url: lifecycle/axiado-corporation-lifecycle.yml
+- type: Conformance
+  url: conformance/axiado-corporation-conformance.yml
+- type: Packages
+  url: packages/axiado-corporation-packages.yml
+- type: SDKs
+  url: packages/axiado-corporation-packages.yml
+- type: Authentication
+  url: authentication/axiado-corporation-authentication.yml

@@ -1,0 +1,55 @@
+# Axiado Software Documentation
+
+> Axiado SecureStack SDK API
+
+## Guides
+- [Getting Started](https://devhub.axiado.com/docs/getting-started.md)
+- [Tools for Software development](https://devhub.axiado.com/docs/tools-for-software-development.md)
+- [AX3000 BSP device drivers](https://devhub.axiado.com/docs/ax3000-bsp-device-drivers.md): AX3000 Linux BSP supported device drivers
+- [OpenBMC Development Guide for AX3000](https://devhub.axiado.com/docs/openbmc-development-guide-for-ax3000.md): OpenBMC development on Axiado TCU
+- [OpenBMC Porting Guide](https://devhub.axiado.com/docs/axiado-openbmc-porting-guide.md): OpenBMC native support on AX3000
+- [Getting started with SecureStack ADK](https://devhub.axiado.com/docs/getting-started-with-securestack-adk.md)
+
+## API Reference
+- [Crypto API](https://devhub.axiado.com/reference/getting-started-with-adk-api.md): This page will help you get started with Crypto API.
+- [Advanced Encryption Standard](https://devhub.axiado.com/reference/aes.md): AES Symmetric Encryption and Decryption Algorithm
+- [Secure Hash Engine](https://devhub.axiado.com/reference/hash-engine.md): Hashing Algorithms
+- [Digital Signature Verification](https://devhub.axiado.com/reference/digital-signature-verification.md): Signature Verification Engine
+- [RSA](https://devhub.axiado.com/reference/rsa.md): RSA Asymmetric Public key Algorithm.
+- [Elliptic Curve Cryptography](https://devhub.axiado.com/reference/ecc.md): ECC Key management and signing and signature verification
+- [Random number generator](https://devhub.axiado.com/reference/trng.md): True Random Number Generator
+- [x509 Certificate Management](https://devhub.axiado.com/reference/x509-certificate-management.md)
+- [Root key management](https://devhub.axiado.com/reference/root-key-management.md): Key Management
+- [Key store](https://devhub.axiado.com/reference/key-store.md): Key Management
+- [Crypto API structures](https://devhub.axiado.com/reference/rsa-context.md): Structure for the various crypto APIs like RSA, ECC and others
+- [Crypto status codes](https://devhub.axiado.com/reference/crypto-status-codes.md): Crypto API status codes
+- [Crypto Type Macros](https://devhub.axiado.com/reference/crypto-type-macros.md): Macros for crypto related APIs
+- [BMC control API](https://devhub.axiado.com/reference/bmc-api.md): APIs to control and know the status of Baseboard Management Controller (BMC).
+- [BMC status codes](https://devhub.axiado.com/reference/bmc-status-codes.md): Baseboard Management Controller API status codes
+- [Flash Interface](https://devhub.axiado.com/reference/flash-api.md)
+- [Flash status codes](https://devhub.axiado.com/reference/flash-status-codes.md)
+- [Flash interface Macros](https://devhub.axiado.com/reference/flash-interface-macros.md)
+- [SPI interface](https://devhub.axiado.com/reference/spi-interface.md)
+- [SPI Status Codes](https://devhub.axiado.com/reference/spi-status-codes.md): SPI API status codes
+- [Status Codes](https://devhub.axiado.com/reference/status-codes.md)
+- [Generic status codes](https://devhub.axiado.com/reference/generic-status-codes.md)
+- [Secure coding API](https://devhub.axiado.com/reference/secure-coding-api.md)
+- [Safe math](https://devhub.axiado.com/reference/safe-math.md): Arithmetic operations
+- [Hardened Boolean](https://devhub.axiado.com/reference/hardened-boolean.md): Generic hardened preprocessor macros and data types used for secure coding
+- [OSAL Introduction](https://devhub.axiado.com/reference/os-abstraction-layer.md)
+- [Memory management](https://devhub.axiado.com/reference/memory-management.md): OS independent interface API for memory related operations.
+- [CPU Cache management](https://devhub.axiado.com/reference/cpu-cache-management.md)
+- [Timer API](https://devhub.axiado.com/reference/timer-api.md): OS independent interface API for timer related operations
+- [Time API](https://devhub.axiado.com/reference/time.md): OS independent interface API for time related operations
+- [Critical Section](https://devhub.axiado.com/reference/critical-section.md): OS independent interface API for critical section related operations
+- [Mutexes](https://devhub.axiado.com/reference/mutexes.md): OS independent interface API for mutex related operations.
+- [Semaphore](https://devhub.axiado.com/reference/semaphore.md): OS independent interface definition for traditional counting semaphore.
+- [OSA status codes](https://devhub.axiado.com/reference/osa-status-codes.md): OS abstraction layer status codes
+- [DMA API](https://devhub.axiado.com/reference/dma-api.md)
+- [DMA Status codes](https://devhub.axiado.com/reference/dma-status-codes.md)
+- [Register access](https://devhub.axiado.com/reference/register-access.md)
+- [8-bit register access](https://devhub.axiado.com/reference/8-bit-register-access.md): 8-bit register access API.
+- [16-bit register access](https://devhub.axiado.com/reference/16bit-register-access.md): 16-bit register access API.
+- [32-bit register access](https://devhub.axiado.com/reference/32-bit-register-access.md): 32-bit register access API.
+- [64-bit register access](https://devhub.axiado.com/reference/64-bit-register-access.md): 64-bit register access API.
+- [Reset Management API](https://devhub.axiado.com/reference/reset-management-api.md)

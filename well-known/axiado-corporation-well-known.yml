@@ -1,0 +1,29 @@
+generated: '2026-07-31'
+method: probed
+source: live HTTP probes of every Axiado host in apis.yml
+note: >-
+  No /.well-known/ discovery document is published on any Axiado host. Recorded so later
+  rounds do not re-probe blindly; no WellKnown/SecurityTxt/APICatalog pointer is wired into
+  apis.yml because nothing was found. Absence is a valid, expected result.
+hosts:
+- host: https://axiado.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://devhub.axiado.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /.well-known/openid-configuration, status: 0, note: connection failed}
+found: []
+x-evidence:
+  fetched: '2026-07-31'
+  method: curl -sIL, following redirects

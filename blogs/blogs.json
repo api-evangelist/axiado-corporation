@@ -1,0 +1,21 @@
+{
+  "repo": "axiado-corporation",
+  "feeds": [
+    {
+      "source": "https://devhub.axiado.com/login",
+      "feed_url": "https://devhub.axiado.com/login",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://axiado.com/news/",
+      "feed_url": "https://axiado.com/feed/",
+      "title": "",
+      "saved": 1,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 1,
+  "fetched": "2026-08-01T15:49:00Z"
+}

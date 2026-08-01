@@ -1,0 +1,374 @@
+generated: '2026-07-31'
+method: searched
+source: https://devhub.axiado.com/reference/status-codes
+name: Axiado SecureStack ADK status / error codes
+api: Axiado SecureStack ADK
+format: vendor-status-codes
+note: Axiado publishes no HTTP/REST API and therefore no RFC 9457 problem types. SecureStack ADK is an
+  embedded C API whose functions return a 32-bit AX_STATUS value; this catalog captures that published
+  registry verbatim from the developer hub.
+envelope:
+  type: AX_STATUS
+  width_bits: 32
+  encoding: upper 20 bits = module (block) code, lower 12 bits = status code
+  success_value: 0x00000000 (zero is success; AX_STATUS_SUCCESS is defined as 0x01010000 in the global
+    block)
+  header: include/error/ax_status.h
+  allocation: Block codes are centrally allocated by Axiado to avoid conflicting status codes across modules.
+  docs: https://devhub.axiado.com/reference/status-codes
+module_count: 7
+code_count: 98
+modules:
+- module: AX_MODULE_GLOBAL
+  area: Global / SecureStack core
+  range: 0x01010000-0x01010fff
+  docs: https://devhub.axiado.com/reference/generic-status-codes
+  code_count: 46
+  codes:
+  - code: AX_STATUS_SUCCESS
+    value: '0x01010000'
+    description: Process or operation is successful
+  - code: AX_STATUS_FAILURE
+    value: '0x01010001'
+    description: Operation is a failure (Non-specific failure)
+  - code: AX_STATUS_CRC_CHECK_FAIL
+    value: '0x01010002'
+    description: CRC check failed
+  - code: AX_STATUS_NOT_FOUND
+    value: '0x01010003'
+    description: A search or indexing operation failed to find requested object
+  - code: AX_STATUS_INTERRUPT
+    value: '0x01010004'
+    description: Current execution was interrupted by an exception
+  - code: AX_STATUS_IO_ERROR
+    value: '0x01010005'
+    description: Error caused while reading or writing I/O devices
+  - code: AX_STATUS_BAD_ADDR_ERROR
+    value: '0x01010006'
+    description: No such device or address exists. The system is no able to locate device/memory location
+      or user entered a wrong address
+  - code: AX_STATUS_ACCESS_DENIED
+    value: '0x01010007'
+    description: The file/memory/register does not have permission to access
+  - code: AX_STATUS_BAD_POINTER
+    value: '0x01010008'
+    description: System detected a Invalid / NULL pointer during an operation
+  - code: AX_STATUS_DEVICE_BUSY
+    value: '0x01010009'
+    description: Peripheral/Device is busy
+  - code: AX_STATUS_KEY_REJECTED
+    value: '0x0101000a'
+    description: Key is unacceptable
+  - code: AX_STATUS_INVALID_PARAMETER
+    value: '0x0101000b'
+    description: Passing a wrong argument to a function
+  - code: AX_STATUS_BIG_FILE
+    value: '0x0101000c'
+    description: File exceeds the maximum defined size
+  - code: AX_STATUS_MEMORY_FULL
+    value: '0x0101000d'
+    description: Maximum size of memory used
+  - code: AX_STATUS_READ_ONLY
+    value: '0x0101000e'
+    description: Memory/Register has read only access
+  - code: AX_STATUS_ADDR_IN_USE
+    value: '0x0101000f'
+    description: Address already in use
+  - code: AX_STATUS_IN_PROGRESS
+    value: '0x01010010'
+    description: Completion pending, operation ongoing
+  - code: AX_STATUS_ABORT
+    value: '0x01010011'
+    description: Operation aborted
+  - code: AX_STATUS_RESET
+    value: '0x01010012'
+    description: System Reset status
+  - code: AX_STATUS_CANCEL
+    value: '0x01010013'
+    description: Operation execution canceled
+  - code: AX_STATUS_RESTART
+    value: '0x01010014'
+    description: System is restarting
+  - code: AX_STATUS_TIMEOUT
+    value: '0x01010015'
+    description: Operation took longer than expected
+  - code: AX_STATUS_NO_DATA
+    value: '0x01010016'
+    description: No data available
+  - code: AX_STATUS_OVERFLOW_ERROR
+    value: '0x01010017'
+    description: Value too large
+  - code: AX_STATUS_NO_KEY
+    value: '0x01010018'
+    description: Key not available
+  - code: AX_STATUS_KEY_EXP
+    value: '0x01010019'
+    description: Key expired
+  - code: AX_STATUS_VERSION_REVOKED
+    value: '0x0101001a'
+    description: Security Version has been revoked
+  - code: AX_STATUS_NOT_IMPLEMENTED
+    value: '0x0101001b'
+    description: A part of the code which is not implemented
+  - code: AX_STATUS_NULL_POINTER
+    value: '0x0101001c'
+    description: Pointer is pointing to NULL address
+  - code: AX_STATUS_VERSION_NOT_SUPPORTED
+    value: '0x0101001d'
+    description: Indicates requested API version is not supported.
+  - code: AX_STATUS_INVALID_SIZE
+    value: '0x0101001e'
+    description: Indicates incorrect size parameter.
+  - code: AX_STATUS_ZERO_SIZE
+    value: '0x0101001f'
+    description: Indicates size parameter is zero and that's not valid.
+  - code: AX_STATUS_PENDING
+    value: '0x01010020'
+    description: Indicates to the calling party that the status will be provided asynchronously.
+  - code: AX_STATUS_OUT_OF_BOUNDS
+    value: '0x01010021'
+    description: Indicates index out of bounds
+  - code: AX_STATUS_SERVICE_UNAVAILABLE
+    value: '0x01010022'
+    description: Indicates that service is unavailable.
+  - code: AX_STATUS_INCORRECT_SIZE
+    value: '0x01010023'
+    description: API encountered invalid size for a parameter (e.g., a given structure size is smaller
+      than expected)
+  - code: AX_STATUS_BUFFER_TOO_SMALL
+    value: '0x01010024'
+    description: Given buffer size is too small for the requested operation.
+  - code: AX_STATUS_INVALID_DEVICE_OBJECT
+    value: '0x01010025'
+    description: Device driver object is not valid or NULL.
+  - code: AX_STATUS_INVALID_OBJECT_ID
+    value: '0x01010026'
+    description: Given object ID is not valid or out of bounds
+  - code: AX_STATUS_NO_MEMORY
+    value: '0x01010027'
+    description: Memory allocation failed, system / pool out of memory.
+  - code: AX_STATUS_INVALID_HANDLE
+    value: '0x01010028'
+    description: A given device / file handle is invalid
+  - code: AX_STATUS_MODE_SET_FAILURE
+    value: '0x01010029'
+    description: Failed to set given configuration or mode.
+  - code: AX_STATUS_BOOT_FAILURE
+    value: '0x0101002a'
+    description: Indicates TCU boot failed.
+  - code: AX_STATUS_BOOT_IN_PROGRESS
+    value: '0x0101002b'
+    description: TCU boot in-progress, waiting for response from remote CPUs.
+  - code: AX_STATUS_PROXY_NON_OPERATIONAL
+    value: '0x0101002c'
+    description: An operation was performed on a proxy that is non-operational or disabled
+  - code: AX_STATUS_MAGIC_NUMBER_NOT_FOUND
+    value: '0x0101002d'
+    description: Magic number not found, for structure definition of users choice.
+- module: AX_MODULE_CRYPTO
+  area: Crypto engine (AES, SHA/SHA-3, RSA, ECC, KDF)
+  range: 0x064cc000-0x064ccfff
+  docs: https://devhub.axiado.com/reference/crypto-status-codes
+  code_count: 13
+  codes:
+  - code: AX_STATUS_CRYPTO_INVALID_KEY_LENGTH
+    value: '0x064cc001'
+    description: Crypto key size invalid
+  - code: AX_STATUS_CRYPTO_UNSUPPORTED_KEY_LENGTH
+    value: '0x064cc002'
+    description: Crypto key size (while valid in the spec) is not supported by the hardware engine
+  - code: AX_STATUS_CRYPTO_SHA3_DIGEST_CMP_SUCCESS
+    value: '0x064cc003'
+    description: Crypto SHA3 hash digest compare success
+  - code: AX_STATUS_CRYPTO_SHA3_DIGEST_CMP_FAILURE
+    value: '0x064cc004'
+    description: Crypto SHA3 hash digest compare failure
+  - code: AX_STATUS_CRYPTO_SHA3_NOT_SUPPORTED
+    value: '0x064cc005'
+    description: Crypto SHA3 not supported
+  - code: AX_STATUS_INVALID_HASH_TYPE
+    value: '0x064cc006'
+    description: Crypto SHA type not supported
+  - code: AX_STATUS_UNSUPPORTED_HASH_TYPE
+    value: '0x064cc007'
+    description: Indicates while the given hash type is valid, it is not supported by implementation.
+      The types of hash algorithms supported sometimes depends on lifecycle of TCU itself
+  - code: AX_STATUS_INVALID_CRYPTO_ALGO
+    value: '0x064cc008'
+    description: Crypto algorithm type not supported
+  - code: AX_STATUS_SHA_INIT_FAILURE
+    value: '0x064cc009'
+    description: SHA engine init failed
+  - code: AX_STATUS_SHA_UPDATE_FAILURE
+    value: '0x064cc00a'
+    description: SHA update operation failed
+  - code: AX_STATUS_KEY_DERIVATION_FAIL
+    value: '0x064cc00b'
+    description: KDC / KDF key derivation failed
+  - code: AX_STATUS_KDC_SYNC_FAILURE
+    value: '0x064cc00c'
+    description: KDC / KDF key derivation failed
+  - code: AX_STATUS_SHA_ENGINE_FAILURE
+    value: '0x064cc00d'
+    description: SHA engine creation failed
+- module: AX_MODULE_BMC
+  area: Baseboard Management Controller boot/status
+  range: 0x08259000-0x08259fff
+  docs: https://devhub.axiado.com/reference/bmc-status-codes
+  code_count: 5
+  codes:
+  - code: AX_STATUS_BMC_U_BOOT_LOADING
+    value: '0x08259000'
+    description: Status code that shows U-boot is loading.
+  - code: AX_STATUS_BMC_KERNEL_LOADING
+    value: '0x08259001'
+    description: Status code that shows kernel is loading.
+  - code: AX_STATUS_BMC_OS_RUNNING
+    value: '0x08259002'
+    description: Status code that shows OS is up and running. BMC is at the login prompt.
+  - code: AX_STATUS_BMC_SHUTDOWN
+    value: '0x08259003'
+    description: Status code that shows BMC is shutting down or in shutdown state.
+  - code: AX_STATUS_BMC_HALTED
+    value: '0x08259004'
+    description: Status code that shows BMC is halted or in wait state.
+- module: AX_MODULE_FLASH
+  area: Serial NOR flash interface
+  range: 0x01d00000-0x01d00fff
+  docs: https://devhub.axiado.com/reference/flash-status-codes
+  code_count: 3
+  codes:
+  - code: AX_STATUS_NOR_FLASH_READ_ID_FAILURE
+    value: '0x01d00001'
+    description: Flash read failure.
+  - code: AX_STATUS_NOR_FLASH_LONG_READ_FAILURE
+    value: '0x01d00002'
+    description: Flash long read failure.
+  - code: AX_STATUS_INVALID_FLASH_ABSIG
+    value: '0x01d00003'
+    description: Invalid flash signature
+- module: AX_MODULE_SPI
+  area: SPI interface
+  range: 0x016a2000-0x016a2fff
+  docs: https://devhub.axiado.com/reference/spi-status-codes
+  code_count: 12
+  codes:
+  - code: AX_STATUS_SPI_VERSION_TOO_LOW
+    value: '0x016a2001'
+    description: Version of SPI struct is too low
+  - code: AX_STATUS_SPI_VERSION_TOO_HIGH
+    value: '0x016a2002'
+    description: Version of SPI struct is too high
+  - code: AX_STATUS_SPI_FLUSH_FIFO_FAILURE
+    value: '0x016a2003'
+    description: SPI fifo was not flushed
+  - code: AX_STATUS_SPI_FLUSH_TX_FIFO_FAILURE
+    value: '0x016a2004'
+    description: SPI tx fifo was not flushed
+  - code: AX_STATUS_SPI_FLUSH_RX_FIFO_FAILURE
+    value: '0x016a2005'
+    description: SPI rx fifo was not flushed
+  - code: AX_STATUS_SPI_TRANSFER_FAILURE
+    value: '0x016a2006'
+    description: SPI rx fifo was not flushed
+  - code: AX_STATUS_SPI_LONG_TRANSFER_FAILURE
+    value: '0x016a2007'
+    description: SPI long transfer failed
+  - code: AX_STATUS_SPI_RECEIVE_FAILURE
+    value: '0x016a2008'
+    description: SPI receive failure
+  - code: AX_STATUS_SPI_TRANSFER_FAILURE
+    value: '0x016a2009'
+    description: SPI long receive failed
+  - code: AX_STATUS_SPI_TRANSFER_FAILURE
+    value: '0x016a200a'
+    description: SPI master transfer enable has failed
+  - code: AX_STATUS_SPI_TRANSFER_FAILURE
+    value: '0x016a200b'
+    description: SPI Master wait for transfer failed
+  - code: AX_STATUS_SPI_TRANSFER_FAILURE
+    value: '0x016a200c'
+    description: SPI chip select was given incorrect value
+- module: AX_MODULE_OSAL
+  area: OS abstraction layer
+  range: 0x02e1b000-0x02e1bfff
+  docs: https://devhub.axiado.com/reference/osa-status-codes
+  code_count: 11
+  codes:
+  - code: AX_STATUS_OSAL_SYNC_INTERFACE
+    value: '0x02e1b001'
+    description: One or more Synchronization interface API are not provided during registration of OSA
+      interface.
+  - code: AX_STATUS_OSAL_FLASH_INTERFACE
+    value: '0x02e1b002'
+    description: One or more Flash interface API are not provided during registration of OSA interface
+  - code: AX_STATUS_OSAL_LOG_INTERFACE
+    value: '0x02e1b003'
+    description: One or more Logging interface API are not provided during registration of OSA interface
+  - code: AX_STATUS_OSAL_MEM_INTERFACE
+    value: '0x02e1b004'
+    description: One or more Memory interface API are not provided during registration of OSA interface
+  - code: AX_STATUS_MEMCMP_MISMATCH
+    value: '0x02e1b005'
+    description: Memcmp does not match
+  - code: AX_STATUS_OSAL_SEM_INTERFACE
+    value: '0x02e1b006'
+    description: One or more semaphore interface API are not provided during registration of OSA interface
+  - code: AX_STATUS_OSAL_MUTEX_INTERFACE
+    value: '0x02e1b007'
+    description: One or more mutex interface API are not provided during registration of OSA interface
+  - code: AX_STATUS_OSAL_TIME_INTERFACE
+    value: '0x02e1b008'
+    description: One or more time interface API are not provided during registration of OSA interface
+  - code: AX_STATUS_OSAL_TIMER_INTERFACE
+    value: '0x02e1b009'
+    description: One or more timer interface API are not provided during registration of OSA interface
+  - code: AX_STATUS_OSAL_CACHE_INTERFACE
+    value: '0x02e1b00a'
+    description: One or more timer cache API are not provided during registration of OSA interface
+  - code: AX_STATUS_SEMAPHORE_TIMEOUT
+    value: '0x02e1b00b'
+    description: One or more semaphore timeout API are not provided during registration of OSA interface
+- module: AX_MODULE_DMA
+  area: DMA controller
+  range: 0x02028000-0x02028fff
+  docs: https://devhub.axiado.com/reference/dma-status-codes
+  code_count: 8
+  codes:
+  - code: AX_STATUS_DMA_INVALID_CHANNEL
+    value: '0x02028001'
+    description: DMA channel number passed is not correct/does not exist
+  - code: AX_STATUS_DMA_CHANNEL_RUNNING
+    value: '0x02028002'
+    description: DMA Channel executing a Descriptor List.
+  - code: AX_STATUS_DMA_CHANNEL_NOT_RUNNING
+    value: '0x02028003'
+    description: DMA Channel executing a Descriptor List. Execution of last descriptor in chain is completed.
+  - code: AX_STATUS_DMA_CHANNEL_INACTIVE
+    value: '0x02028004'
+    description: DMA Channel logic not held in reset state
+  - code: AX_STATUS_DMA_CHANNEL_ACTIVE
+    value: '0x02028005'
+    description: DMA Channel logic held in reset state
+  - code: AX_STATUS_DMA_NO_INT_SUPPORT
+    value: '0x02028006'
+    description: DMA interrupt not supported on this CPU
+  - code: AX_STATUS_DMA_INVALID_DESC_SIZE
+    value: '0x02028007'
+    description: Number of descriptor list exceeds maximum allowed size
+  - code: AX_STATUS_DMA_INVALID_AXLEN
+    value: '0x02028008'
+    description: AXI4 burst length (read/write) exceed maximum allowed length
+x-evidence:
+  fetched: '2026-07-31'
+  urls:
+  - https://devhub.axiado.com/reference/status-codes
+  - https://devhub.axiado.com/reference/generic-status-codes
+  - https://devhub.axiado.com/reference/crypto-status-codes
+  - https://devhub.axiado.com/reference/bmc-status-codes
+  - https://devhub.axiado.com/reference/flash-status-codes
+  - https://devhub.axiado.com/reference/spi-status-codes
+  - https://devhub.axiado.com/reference/osa-status-codes
+  - https://devhub.axiado.com/reference/dma-status-codes
+  http_status: 200
+  extraction: parsed from the ReadMe-published markdown (.md) form of each reference page

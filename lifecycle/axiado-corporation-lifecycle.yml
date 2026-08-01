@@ -1,0 +1,60 @@
+generated: '2026-07-31'
+method: searched
+source: https://devhub.axiado.com/
+api: Axiado SecureStack ADK
+note: >-
+  Axiado publishes no versioning policy, no deprecation policy, no SLA and no status page.
+  Recorded as absent rather than inferred. No StatusPage or Deprecation pointer is emitted in
+  apis.yml, because neither exists — emitting one would credit a posture Axiado does not have.
+versioning:
+  scheme: developer-hub-version
+  current: v0.11.0
+  docs: https://devhub.axiado.com/
+  policy_url: null
+  runtime_api_signal: >-
+    AX_STATUS_VERSION_NOT_SUPPORTED (0x0101001D) is returned when a caller requests an
+    unsupported API version, and AX_STATUS_VERSION_REVOKED (0x0101001A) when a security version
+    has been revoked — so the ADK does carry a per-call version contract even though no written
+    policy is published.
+  toolchain_pins:
+    zephyr_rtos: 3.0.0
+    zephyr_sdk: 0.14.0
+deprecation:
+  policy_url: null
+  sunset_header: false
+  found: false
+  note: no deprecation or sunset policy published on axiado.com or devhub.axiado.com
+sla:
+  url: null
+  uptime_target: null
+  found: false
+  note: not applicable — no hosted service; the TCU runs on customer hardware
+status_page:
+  url: null
+  found: false
+  probed:
+  - {url: 'https://status.axiado.com', result: no DNS/connection}
+changelog:
+  url: https://devhub.axiado.com/changelog
+  entries: 0
+  found: false
+  note: >-
+    The developer hub exposes a changelog route but it renders "No Changelogs" — zero dated
+    entries as of 2026-07-31. No changelog/ artifact and no ChangeLog pointer emitted.
+support:
+  community: https://devhub.axiado.com/discuss
+  service_desk: https://axiado-external.atlassian.net/
+  contact: https://axiado.com/contact/
+release_channels:
+  developer_hub: https://devhub.axiado.com/
+  news: https://axiado.com/news/
+  news_feed: https://axiado.com/feed/
+  github: https://github.com/axiado
+deprecated_operations: []
+x-evidence:
+  fetched: '2026-07-31'
+  probes:
+  - {url: 'https://status.axiado.com', http_status: 0}
+  - {url: 'https://trust.axiado.com', http_status: 0}
+  - {url: 'https://axiado.com/security', http_status: 404}
+  - {url: 'https://devhub.axiado.com/changelog', http_status: 200, body: 'No Changelogs'}

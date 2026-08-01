@@ -1,0 +1,112 @@
+generated: '2026-07-31'
+method: searched
+source: https://axiado.com/products/
+note: >-
+  Axiado ships silicon and firmware, not a hosted web API. The cross-cutting standards that
+  matter here are platform-management and trusted-computing standards implemented on the TCU,
+  not HTTP/API-design standards. Web-API standards are recorded as not-applicable rather than
+  as failures. No compliance certifications (SOC 2, ISO 27001, PCI DSS, HIPAA, FedRAMP) are
+  published on any Axiado surface, so no Compliance pointer is emitted.
+standards:
+- id: ocp-dc-scm-2.0
+  name: OCP Datacenter-ready Secure Control Module 2.0
+  conforms: true
+  confidence: high
+  evidence: >-
+    axiado.com/products/ describes the Smart-SCM3002 as "complying with OCP DC-SCM standard";
+    the Axiado/AMI announcement names the "OCP DC-SCM 2.0 compliant SCM3000 card (also available
+    as SCM3002 and SCM3003)".
+  source: https://axiado.com/products/
+- id: dmtf-redfish
+  name: DMTF Redfish (RESTful platform management API)
+  conforms: true
+  confidence: high
+  evidence: >-
+    Axiado press release (Axiado + AMI, NVIDIA MGX platform management stack): "The combined
+    solution provides foundational security and manageability for AI-driven environments,
+    including support for Redfish (RESTful API), Out-of-Band management, KVM Redirection and
+    Virtual Media." Redfish is served on-device by the TCU BMC; the schemas are DMTF's, not
+    Axiado-published, so no Redfish OpenAPI is harvested into openapi/.
+  source: https://www.prnewswire.com/news-releases/axiado-and-ami-partner-to-deliver-advanced-platform-management-stack-for-nvidia-mgx-servers-302275812.html
+- id: openbmc
+  name: OpenBMC
+  conforms: true
+  confidence: high
+  evidence: >-
+    Axiado publishes an "OpenBMC Development Guide for AX3000" and an "OpenBMC Porting Guide"
+    on the developer hub, and maintains openbmc, linux-axiado, u-boot-axiado and nvbmc
+    distribution forks in its GitHub organization.
+  source: https://devhub.axiado.com/docs/openbmc-development-guide-for-ax3000
+- id: tpm
+  name: Trusted Platform Module
+  conforms: true
+  confidence: high
+  evidence: >-
+    axiado.com/tcu-platform/ lists "trusted platform module (TPM)" as an integrated TCU
+    function; the AX3080 product page lists TPM integration alongside Hardware Root of Trust,
+    BMC, Firewall and HSM. The specific TPM specification revision is not published.
+  source: https://axiado.com/tcu-platform/
+- id: zephyr-rtos-3.0.0
+  name: Zephyr RTOS 3.0.0 (hardened)
+  conforms: true
+  confidence: high
+  evidence: >-
+    "ADK uses a hardened version of Zephyr RTOS version 3.0.0, Zephyr SDK version 0.14.0" —
+    SecureStack ADK getting-started guide. Applications are cross-compiled as Zephyr external
+    modules with the ARM GNU toolchain.
+  source: https://devhub.axiado.com/docs/getting-started-with-securestack-adk
+- id: x509-rfc5280
+  name: X.509 certificates (RFC 5280)
+  conforms: true
+  confidence: medium
+  evidence: >-
+    SecureStack ADK publishes an "x509 Certificate Management" API reference page; certificate
+    handling is a first-class ADK engine. The reference does not name RFC 5280 explicitly.
+  source: https://devhub.axiado.com/reference/x509-certificate-management
+- id: dice
+  name: DICE (Device Identifier Composition Engine)
+  conforms: true
+  confidence: medium
+  evidence: >-
+    SecureStack ADK getting-started guide: "ADK exposes public API to create interface engines
+    for crypto, key management (including root keys), DICE, Serial NOR Flash, SPI, and I2C."
+  source: https://devhub.axiado.com/docs/getting-started-with-securestack-adk
+- id: caliptra
+  name: OCP Caliptra silicon root of trust
+  conforms: false
+  confidence: low
+  evidence: >-
+    A public fork of caliptra-sw ("Caliptra software (ROM, FMC, runtime firmware), and
+    libraries/tools needed to build and test") exists in the Axiado GitHub organization, but
+    Caliptra is not claimed on any Axiado product or technology page. Recorded as an
+    indication only, not a conformance claim.
+  source: https://github.com/axiado
+- id: oauth2
+  conforms: false
+  applicable: false
+  evidence: no hosted web API; ADK authorization is a firmware application-privilege model
+- id: openid-connect
+  conforms: false
+  applicable: false
+  evidence: no hosted web API
+- id: rfc9457-problem-details
+  conforms: false
+  applicable: false
+  evidence: >-
+    errors are returned as 32-bit AX_STATUS values from C functions, not as HTTP
+    application/problem+json bodies — see errors/axiado-corporation-error-codes.yml
+- id: openapi
+  conforms: false
+  applicable: false
+  evidence: >-
+    no OpenAPI/Swagger definition published by Axiado; probed devhub.axiado.com and axiado.com
+    for /openapi.json, /openapi.yaml, /swagger.json, /api-docs and /reference/openapi.json —
+    all 404 (2026-07-31)
+x-evidence:
+  fetched: '2026-07-31'
+  probes:
+  - {url: 'https://devhub.axiado.com/openapi.json', http_status: 404}
+  - {url: 'https://devhub.axiado.com/openapi.yaml', http_status: 404}
+  - {url: 'https://devhub.axiado.com/swagger.json', http_status: 404}
+  - {url: 'https://devhub.axiado.com/api-docs', http_status: 404}
+  - {url: 'https://devhub.axiado.com/reference/openapi.json', http_status: 404}

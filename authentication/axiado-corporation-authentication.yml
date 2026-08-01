@@ -1,0 +1,71 @@
+generated: '2026-07-31'
+method: searched
+source: https://devhub.axiado.com/docs/getting-started-with-securestack-adk
+api: Axiado SecureStack ADK
+docs: https://devhub.axiado.com/docs/getting-started-with-securestack-adk
+note: >-
+  Derived mechanically first — 0-working/derive-authentication.py found no OpenAPI
+  securitySchemes to read, because Axiado publishes no OpenAPI. This profile is therefore
+  searched from the developer hub. The ADK is an embedded API: there are no API keys, bearer
+  tokens, OAuth flows or mutual-TLS schemes. Authorization is a firmware application-privilege
+  model plus cryptographic image signing.
+summary:
+  types: [application-privilege, code-signing]
+  api_key_in: []
+  oauth2_flows: []
+  http_schemes: []
+  bearer: false
+  oauth2: false
+  openid_connect: false
+  mutual_tls: false
+schemes:
+- name: application-privilege
+  type: authorization
+  scope: firmware application
+  description: >-
+    Secure applications execute either in privileged mode (direct hardware and register access,
+    used for device drivers and system services) or in a sandboxed non-privileged mode that
+    still reaches all TCU features. Axiado recommends non-privileged mode. Certain ADK APIs
+    require the calling application to have been provisioned with special access privileges;
+    the per-API access restrictions and the provisioning procedure are documented in the ADK
+    API manual.
+  source: https://devhub.axiado.com/docs/getting-started-with-securestack-adk
+- name: firmware-image-signing
+  type: code-signing
+  scope: TCU firmware image
+  description: >-
+    All firmware images are signed as part of the build environment. The developer hub
+    documents signed image creation with ECC or RSA keys, a signature-verification engine,
+    root key management and a key store as first-class ADK engines. AX_STATUS_KEY_REJECTED,
+    AX_STATUS_NO_KEY, AX_STATUS_KEY_EXP and AX_STATUS_VERSION_REVOKED are the published
+    failure codes on this path.
+  algorithms: [ECC, RSA]
+  references:
+  - https://devhub.axiado.com/reference/digital-signature-verification
+  - https://devhub.axiado.com/reference/root-key-management
+  - https://devhub.axiado.com/reference/key-store
+  - https://devhub.axiado.com/reference/x509-certificate-management
+- name: hardware-root-of-trust
+  type: platform
+  scope: silicon
+  description: >-
+    The TCU integrates a hardware root of trust, TPM and HSM on-die; the trusted execution
+    environment anchoring ADK applications is rooted in that silicon rather than in a
+    credential presented per request.
+  source: https://axiado.com/tcu-platform/
+portal_access:
+  developer_hub_login: https://devhub.axiado.com/login
+  note: >-
+    The developer hub itself has an account login, and ADK sources are released by Axiado
+    customer engineering on request — access to the SDK is commercial, not self-serve.
+not_applicable:
+  api_keys: no hosted API to key
+  oauth2: no authorization server; /.well-known/oauth-authorization-server returns 404
+  openid_connect: /.well-known/openid-configuration returns 404 on both hosts
+  scopes: no OAuth surface — scopes/ artifact deliberately not created
+x-evidence:
+  fetched: '2026-07-31'
+  derive_script: 0-working/derive-authentication.py (0 auth profiles — no OpenAPI in repo)
+  probes:
+  - {url: 'https://devhub.axiado.com/.well-known/oauth-authorization-server', http_status: 404}
+  - {url: 'https://axiado.com/.well-known/openid-configuration', http_status: 404}

@@ -1,0 +1,93 @@
+generated: '2026-07-31'
+method: searched
+source: https://devhub.axiado.com/reference/status-codes
+api: Axiado SecureStack ADK
+note: >-
+  Cross-cutting semantics for an embedded C API, not an HTTP API. HTTP-shaped conventions
+  (pagination, idempotency keys, rate-limit headers, request-id tracing, content negotiation)
+  do not exist on this surface and are recorded as not-applicable rather than as gaps. No
+  Idempotency pointer is emitted — Axiado documents no idempotency contract.
+interface_style:
+  kind: embedded-c-api
+  languages: [C, C++]
+  runtime: Zephyr RTOS 3.0.0 (hardened) on the AX3000 TCU Secure Enclave (ARM Cortex-M55)
+  linkage: cross-compiled into the signed TCU firmware image, not called over a network
+  docs: https://devhub.axiado.com/docs/getting-started-with-securestack-adk
+api_shape:
+  pattern: engines
+  description: >-
+    "SecureStack implements its API in the form of various engines (singleton objects with
+    well-defined interfaces). These engines expose a rich set of thread-safe APIs and abstract
+    out the implementation complexity." Engines are published for crypto, key management
+    (including root keys), DICE, serial NOR flash, SPI and I2C, plus debug logging, platform
+    services and inter-processor communication.
+  thread_safety: >-
+    Engine APIs are documented as thread-safe; individual reference pages carry a thread_safe
+    badge per function.
+  naming: >-
+    Functions are prefixed ax_ (e.g. ax_bmc_boot_hold, ax_bmc_boot_release, ax_get_bmc_status);
+    constants and status codes are prefixed AX_.
+error_envelope:
+  return_type: AX_STATUS
+  width_bits: 32
+  encoding: upper 20 bits = module (block) code, lower 12 bits = status code
+  success: zero is success
+  header: include/error/ax_status.h
+  allocation: block codes centrally allocated by Axiado to avoid collisions across modules
+  catalog: errors/axiado-corporation-error-codes.yml
+  docs: https://devhub.axiado.com/reference/status-codes
+async:
+  supported: true
+  signal: >-
+    AX_STATUS_PENDING (0x01010020) — "Indicates to the calling party that the status will be
+    provided asynchronously." AX_STATUS_IN_PROGRESS (0x01010010) signals a completion-pending,
+    ongoing operation.
+versioning:
+  scheme: documented-version-per-api
+  signal: >-
+    AX_STATUS_VERSION_NOT_SUPPORTED (0x0101001D) — "Indicates requested API version is not
+    supported." AX_STATUS_VERSION_REVOKED (0x0101001A) signals a revoked security version.
+  developer_hub_version: v0.11.0
+  toolchain_versions:
+    zephyr_rtos: 3.0.0
+    zephyr_sdk: 0.14.0
+    arm_gnu: gcc-arm-11.2-2022.02 (arm-none-eabi, baremetal Cortex-M55)
+authorization:
+  model: application-privilege
+  modes:
+  - name: privileged
+    description: >-
+      Direct hardware and register access; used for core functionality such as device drivers
+      and system services. Axiado explicitly recommends against it — "errors in privileged mode
+      can lead to overall system instability."
+  - name: non-privileged
+    description: >-
+      Sandboxed trusted execution environment with access to all TCU features; the recommended
+      default for application development.
+  provisioning: >-
+    "Some of the APIs will require application to be provisioned with special access privileges.
+    Refer to the ADK API manual for specific information on access restrictions and how to
+    provision applications with access privileges."
+  profile: authentication/axiado-corporation-authentication.yml
+integrity:
+  image_signing: >-
+    "All firmware images are signed as part of the build environment." Signed image creation
+    uses ECC or RSA keys; the developer hub documents signature verification, root key
+    management and a key store as first-class ADK engines.
+  docs: https://devhub.axiado.com/reference/digital-signature-verification
+secure_coding:
+  primitives:
+  - {name: safe math, docs: 'https://devhub.axiado.com/reference/safe-math', description: checked arithmetic operations}
+  - {name: hardened boolean, docs: 'https://devhub.axiado.com/reference/hardened-boolean', description: fault-injection-resistant boolean types and macros}
+not_applicable:
+  pagination: no collection-over-HTTP surface
+  idempotency: no idempotency key or replay contract is documented
+  rate_limiting: no network rate-limit signaling
+  request_tracing: no request-id header; debug logging is the ADK equivalent
+  content_negotiation: not an HTTP API
+  field_expansion: not an HTTP API
+cross_links:
+  errors: errors/axiado-corporation-error-codes.yml
+  lifecycle: lifecycle/axiado-corporation-lifecycle.yml
+  authentication: authentication/axiado-corporation-authentication.yml
+  conformance: conformance/axiado-corporation-conformance.yml

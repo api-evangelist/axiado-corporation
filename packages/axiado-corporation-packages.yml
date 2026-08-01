@@ -1,0 +1,48 @@
+generated: '2026-07-31'
+method: searched
+source: https://devhub.axiado.com/docs/getting-started-with-securestack-adk
+note: >-
+  Axiado publishes no client library on any public package registry — npm, PyPI, crates.io and
+  RubyGems were all searched for "axiado" on 2026-07-31 and returned zero results. The one
+  first-party SDK is the SecureStack ADK, distributed as source by Axiado customer engineering
+  and cross-compiled into TCU firmware. It is a real, publicly documented SDK with a full API
+  reference, so it is recorded here; it is simply not registry-distributed.
+packages:
+- language: c
+  registry: vendor
+  name: Axiado SecureStack ADK
+  url: https://devhub.axiado.com/reference
+  availability: on-request
+  install: >-
+    Source distribution — "To download Axiado ADK sources and associated binary, please contact
+    Axiado customer engineering representative." Built as a Zephyr external module with
+    `west build -b ax3000_hapsec . -DPLATFORM=SCM3000 --pristine`.
+  requires:
+  - Zephyr SDK 0.14.0
+  - Zephyr RTOS 3.0.0 (hardened, Axiado-supplied)
+  - ARM GNU toolchain (arm-none-eabi, gcc-arm-11.2-2022.02 for baremetal Cortex-M55)
+  - Python 3.8
+  official: true
+  docs: https://devhub.axiado.com/docs/getting-started-with-securestack-adk
+registries_searched:
+- {registry: npm, query: axiado, results: 0, checked: '2026-07-31'}
+- {registry: pypi, query: axiado, results: 0, checked: '2026-07-31'}
+- {registry: crates.io, query: axiado, results: 0, checked: '2026-07-31'}
+- {registry: rubygems, query: axiado, results: 0, checked: '2026-07-31'}
+source_repositories:
+  note: >-
+    The Axiado GitHub organization publishes firmware/BSP source trees — largely forks of
+    upstream open-source projects carrying Axiado board support — not client SDKs. Listed for
+    provenance, not counted as packages.
+  org: https://github.com/axiado
+  repos:
+  - {name: openbmc, description: OpenBMC Distribution, language: BitBake}
+  - {name: nvbmc, description: OpenBMC Distribution, language: BitBake}
+  - {name: linux-axiado, description: OpenBMC Linux kernel source tree, language: C}
+  - {name: linux-axiado-dev, description: Linux kernel source tree, language: C}
+  - {name: u-boot-axiado, description: OpenBMC Das U-Boot Source Tree, language: C}
+  - {name: u-boot-ax3000, description: Das U-Boot Source Tree, language: C}
+  - {name: u-boot-ax3005, description: Das U-Boot Source Tree for Ultra, language: C}
+  - {name: caliptra-sw, description: Caliptra software (ROM, FMC, runtime firmware), language: Rust}
+  - {name: ATF, description: Read-only mirror of Trusted Firmware-A, language: C}
+  - {name: Hackathon, description: Axiado's Hackathon}
