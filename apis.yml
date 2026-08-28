@@ -14,6 +14,17 @@ description: 'Axiado Corporation is a San Jose, California semiconductor company
   documentation is published at devhub.axiado.com. The API surface is an embedded C/C++
   SDK and on-device management interface — Axiado publishes no hosted public web API
   and no OpenAPI definition.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://axiado.com/wp-content/uploads/2024/07/AXIADO_HORIZONTAL_PRIMARY.png
 url: https://raw.githubusercontent.com/api-evangelist/axiado-corporation/refs/heads/main/apis.yml
 x-type: company
