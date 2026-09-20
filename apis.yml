@@ -49,6 +49,9 @@ x-api-surface-note: SecureStack ADK is an embedded C/C++ API cross-compiled into
   firmware (Zephyr RTOS) and distributed as source by Axiado customer engineering;
   management is exposed on-device via OpenBMC. There is no network-addressable public
   baseURL to record.
+x-docs-platform: readme
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-09-19
 x-enrichment:
   date: '2026-07-31'
   status: enriched
