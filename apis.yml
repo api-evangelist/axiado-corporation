@@ -1,5 +1,5 @@
 aid: axiado-corporation
-name: Axiado Corporation
+name: Axiado
 description: 'Axiado Corporation is a San Jose, California semiconductor company building
   hardware-anchored, AI-driven platform security for AI data centers, cloud infrastructure,
   5G networks and disaggregated compute. Its flagship Trusted Control/Compute Unit
@@ -64,7 +64,7 @@ tags:
 - Semiconductors
 - Hardware Security
 - Platform Security
-- Data-Center
+- Data Center
 - Cybersecurity
 - Baseboard Management Controller
 - Root of Trust
@@ -90,6 +90,7 @@ tags_raw:
 - Trusted Computing
 - OpenBMC
 - SDK
+- Data-Center
 apis:
 - name: Axiado SecureStack ADK
   description: 'The SecureStack Application Development Kit is Axiado''s public API
@@ -182,3 +183,4 @@ common:
   url: packages/axiado-corporation-packages.yml
 - type: Authentication
   url: authentication/axiado-corporation-authentication.yml
+x-legal-name: Axiado Corporation
