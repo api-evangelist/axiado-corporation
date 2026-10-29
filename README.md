@@ -1,4 +1,4 @@
-# Axiado Corporation
+# Axiado
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,33 +64,92 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Axiado Corporation is a San Jose, California semiconductor company building hardware-anchored, AI-driven platform security for AI data centers, cloud infrastructure, 5G networks and disaggregated compute. Its Trusted Control/Compute Unit (TCU) — the AX3000 family and second-generation AX3080 — integrates the baseboard management controller (BMC), hardware root of trust, TPM, HSM, firewall and LAN-on-motherboard into a single SoC with on-die AI/ML engines. Axiado also ships OCP DC-SCM secure control modules (Smart-SCM3002, SCM3003, SCM3080-MT).
+Axiado Corporation is a San Jose, California semiconductor company building hardware-anchored, AI-driven platform security for AI data centers, cloud infrastructure, 5G networks and disaggregated compute. Its flagship Trusted Control/Compute Unit (TCU) — the AX3000 family and the second-generation AX3080 — collapses the baseboard management controller (BMC), hardware root of trust, trusted platform module (TPM), hardware security module, firewall and LAN-on-motherboard into a single system-on-chip with on-die AI/ML engines for dynamic threat management. Axiado ships OCP DC-SCM secure control modules (Smart-SCM3002, SCM3003, SCM3080-MT) alongside the SecureStack ADK, a Zephyr RTOS software development kit whose public API reference documents crypto, key management, X.509 certificate, BMC control, flash, SPI, DMA and OS-abstraction engines, plus OpenBMC-based out-of-band management running on the TCU. Developer documentation is published at devhub.axiado.com. The API surface is an embedded C/C++ SDK and on-device management interface — Axiado publishes no hosted public web API and no OpenAPI definition.
 
-## API surface
+**Areas:** Semiconductors · Hardware Security · Platform Security · Data Center · Cybersecurity · Baseboard Management Controller · Root of Trust · Firmware · Embedded · Cryptography · AI Infrastructure · Trusted Computing
 
-Axiado publishes **no hosted public web API and no OpenAPI definition**. The documented API surface is:
+## Axiado on APIs.io
 
-- **SecureStack ADK** — an embedded C/C++ SDK for the TCU Secure Enclave (hardened Zephyr RTOS 3.0.0, ARM Cortex-M55), with a full public API reference covering crypto, key management, X.509, BMC control, flash, SPI, DMA, register access and an OS abstraction layer. Source is distributed by Axiado customer engineering.
-- **On-device management** — OpenBMC on the TCU, with DMTF Redfish (RESTful API), out-of-band management, KVM redirection and virtual media.
+Everything profiled for Axiado is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/axiado-corporation/](https://apis.io/providers/axiado-corporation/)** — or go straight to one of the APIs or properties below.
 
-## Links
+### APIs (1)
 
-- Website — https://axiado.com/
-- Developer hub — https://devhub.axiado.com/
-- API reference — https://devhub.axiado.com/reference
-- GitHub — https://github.com/axiado
-- News — https://axiado.com/news/
+- [Axiado SecureStack ADK](https://apis.io/apis/axiado-corporation/axiado-securestack-adk/) — The SecureStack Application Development Kit is Axiado's public API for building secure applications on the AX3000 / AX2000 TCU family. It exposes…
 
-## Artifacts in this repo
+### Published properties
 
-| Path | What |
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Axiado Corporation Authentication](https://apis.io/security/axiado-corporation/axiado-corporation-authentication/)
+- [Axiado Corporation Domain Security](https://apis.io/security/axiado-corporation/axiado-corporation-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://axiado.com/)
+- [Documentation](https://devhub.axiado.com/docs)
+- [Getting started](https://devhub.axiado.com/docs/getting-started)
+- [API reference](https://devhub.axiado.com/reference)
+- [Support](https://devhub.axiado.com/discuss)
+- [Blog](https://axiado.com/news/)
+- [Terms of service](https://axiado.com/terms-of-service/)
+- [Privacy policy](https://axiado.com/privacy/)
+- [GitHub](https://github.com/axiado)
+
+## API Evangelist rating
+
+**Kin Score 24.9** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| `llms/` | `llms.txt` harvested verbatim from the developer hub |
-| `errors/` | the published `AX_STATUS` registry — 98 codes across 7 modules |
-| `conventions/` | ADK engine model, error envelope, async + versioning signals, privilege modes |
-| `authentication/` | application-privilege model, firmware image signing, hardware root of trust |
-| `conformance/` | OCP DC-SCM 2.0, Redfish, OpenBMC, TPM, Zephyr, DICE — with evidence |
-| `lifecycle/` | versioning, and the honest absences (no status page, no deprecation policy, no changelog entries) |
-| `packages/` | SecureStack ADK; zero results across npm/PyPI/crates.io/RubyGems |
-| `security/` | probed TLS/HSTS/DNSSEC/CAA/SPF/DMARC posture |
-| `well-known/` | probe record — no `/.well-known/` document published on any host |
+| Discoverability | 64.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 27.6 |
+
+**Agent readiness 5.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/axiado-corporation/](https://apis.io/providers/axiado-corporation/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Axiado: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/axiado-corporation/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
